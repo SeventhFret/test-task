@@ -6,6 +6,37 @@
 	<title>Test task</title>
 </head>
 <body>
-	<h1>Posts list</h1>
+	<style>
+		.main-screen {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		.post-list {
+			list-style: none;
+		}
+
+		.post-card {
+			padding: 1vw;
+			background-color: bisque;
+			margin-bottom: 1vh;
+			border-radius: 15px;
+			width: 40vw;
+		}
+	</style>
+	<div class='main-screen'>
+		<h1>Posts list</h1>
+		
+		<ul class="post-list">
+			{% for post in posts %}
+			<li class='post-card'>
+				<h3>{{ post.id }}. {{ post.title }}</h3>
+				<h4>User: {{ post.user_id }}</h4>
+				<p>{{ post.text }}</p>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
 </body>
 </html>
